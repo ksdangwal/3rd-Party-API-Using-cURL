@@ -1,9 +1,6 @@
 <?php
-3rd Party API Using cURL
-
-How to use 3rd party API with cURL PHP
-
-Example API
+	
+//Example API URL # https://docs.firstpromoter.com/
 
 curl -X POST "https://firstpromoter.com/api/v1/track/sale"
   -d "wid=b850ac4wer56hy1b5ef41"
@@ -14,7 +11,7 @@ curl -X POST "https://firstpromoter.com/api/v1/track/sale"
   -d "amount=6000"
   -H "x-api-key: 2947d4543695e7cc7dhda3c52ebyt74eb8"
 
-API Response
+//API Response
 
 {
   "id": 1708,
@@ -46,19 +43,17 @@ API Response
   }
 }
 
-
-**************************************************
+/***************************************************
 How to use 3rd party API with cURL PHP
-**************************************************
+***************************************************/
 
-Method 1 . Call a Function
-
+//Method 1 . Call a Function
 
 generateFirstSalesCommission($email, $uid, $event_id, $amount) ;
 
 function generateFirstSalesCommission($email, $uid, $event_id, $amount) {
 
-	//if(isset($_COOKIE['_fprom_track'])) {
+	if(isset($_COOKIE['_fprom_track'])) {
 	
 		$api_url = FIRSTPROMOTER_SALES_URL;
 		
@@ -66,7 +61,7 @@ function generateFirstSalesCommission($email, $uid, $event_id, $amount) {
 		$wid 		= 	FIRSTPROMOTER_WID;
 		$email	 	= 	trim($email);
 		$uid	 	= 	trim($uid);
-		//$tid 		= 	trim($_COOKIE['_fprom_track']);
+		$tid 		= 	trim($_COOKIE['_fprom_track']);
 		$event_id 	= 	trim($event_id);
 		$amount 	= 	trim($amount * 100); // Amount in Cents
 		
@@ -94,13 +89,11 @@ function generateFirstSalesCommission($email, $uid, $event_id, $amount) {
 		$result = curl_exec($curl);
 		curl_close($curl);
 
-		//echo $result;
-	//}
+		echo $result;
+	}
 }
 
-
-Method 2 . Simple cURL
-
+//Method 2 . Simple cURL
 
 $api_url = FIRSTPROMOTER_SALES_URL;
 		
@@ -108,7 +101,7 @@ $api_url = FIRSTPROMOTER_SALES_URL;
 $wid 		= 	FIRSTPROMOTER_WID;
 $email	 	= 	trim($email);
 $uid	 	= 	trim($uid);
-//$tid 		= 	trim($_COOKIE['_fprom_track']);
+$tid 		= 	trim($_COOKIE['_fprom_track']);
 $event_id 	= 	trim($event_id);
 $amount 	= 	trim($amount * 100); // Amount in Cents
 
@@ -136,6 +129,6 @@ curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 $result = curl_exec($curl);
 curl_close($curl);
 
-//echo $result;
+echo $result;
 
 ?>
