@@ -43,11 +43,14 @@ curl -X POST "https://firstpromoter.com/api/v1/track/sale"
   }
 }
 
+
 /***************************************************
 How to use 3rd party API with cURL PHP
 ***************************************************/
 
-//Method 1 . Call a Function
+/*************************
+Method 1 . Call a Function
+*************************/
 
 generateFirstSalesCommission($email, $uid, $event_id, $amount) ;
 
@@ -93,7 +96,10 @@ function generateFirstSalesCommission($email, $uid, $event_id, $amount) {
 	}
 }
 
+
+/***********************
 //Method 2 . Simple cURL
+***********************/
 
 $api_url = FIRSTPROMOTER_SALES_URL;
 		
